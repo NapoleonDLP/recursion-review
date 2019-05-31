@@ -12,24 +12,24 @@ var getElementsByClassName = function(className, node) {
   var results = [];
 
   //if node is undefined
-  if(node === undefined){
-    //then we set node to be the body of the document
+  if (node === undefined) {
+  //then we set node to be the body of the document
     node = document.body;
   }
 
-  if(node.className){
+  if (node.className) {
     //create array of classes names from element if exists
     var nodeClasses = node.className.split(' ');
     //check if node had given class name
-    if(nodeClasses.includes(className)){
+    if (nodeClasses.includes(className)) {
       //if it did then push element to results
       results.push(node);
     }
   }
 
   //check if the node has any children
-  if(node.hasChildNodes()){
-    for(var i = 0; i < node.childNodes.length; i++){
+  if (node.hasChildNodes()) {
+    for (var i = 0; i < node.childNodes.length; i++) {
       //concat results with recursive call of getElementsByClassName on each child node
       results = results.concat(getElementsByClassName(className, node.childNodes[i]));
 
